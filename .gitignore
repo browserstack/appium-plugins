@@ -1,0 +1,17 @@
+.irb-history
+*.swp
+.DS_Store
+node_modules
+*.sublime-*
+*.iml
+*.autosave
+.idea/
+*.log
+*.t
+.*~
+*~
+build/
+.idea
+*DerivedData
+.eslintcache
+local_appium_home
