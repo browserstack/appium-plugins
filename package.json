@@ -1,0 +1,59 @@
+{
+  "name": "appium-plugins",
+  "version": "1.0.0",
+  "description": "Home for Appium Plugins maintained by the BrowserStack Open Source Program Office",
+  "scripts": {
+    "clean": "run-s \"clean:*\" && npm install && npm run bootstrap && npm run build",
+    "clean:appiumhome": "rimraf \"packages/*/local_appium_home\"",
+    "clean:pkglock": "rimraf package-lock.json && rimraf \"packages/*/package-lock.json\"",
+    "clean:modules": "lerna clean -y && rimraf node_modules",
+    "build": "lerna run copyfiles && node ./scripts/build.js",
+    "watch": "lerna run copyfiles && node ./scripts/build.js --watch",
+    "bootstrap": "lerna bootstrap --no-ci",
+    "test": "run-s \"test:*\"",
+    "test:lint": "lerna exec --stream -- npx eslint .",
+    "test:unit": "lerna run --stream test:unit",
+    "test:e2e": "lerna run --stream test:e2e",
+    "precommit:msg": "echo 'Running pre-commit checks...' && exit 0",
+    "precommit:test": "npm run build && npm run test:lint && npm run test:unit",
+    "publish": "npm run build && lerna publish",
+    "postinstall": "npm run bootstrap"
+  },
+  "devDependencies": {
+    "@appium/eslint-config-appium": "^4.5.0",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "appium": "^2.0.0-beta.11",
+    "chai": "4.x",
+    "chai-as-promised": "7.x",
+    "copyfiles": "^2.4.1",
+    "eslint": "^7.14.0",
+    "lerna": "^4.0.0",
+    "mocha": "^7.0.1",
+    "npm-run-all": "^4.1.5",
+    "pre-commit": "1.x",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.4",
+    "sinon": "^9.0.0",
+    "teen_process": "^1.16.0",
+    "typescript": "^4.1.2"
+  },
+  "pre-commit": [
+    "precommit:msg",
+    "precommit:test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/browserstack/appium-plugins.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/browserstack/appium-plugins/issues"
+  },
+  "homepage": "https://github.com/browserstack/appium-plugins#readme",
+  "dependencies": {
+    "eslint-config-appium": "^4.7.0"
+  }
+}

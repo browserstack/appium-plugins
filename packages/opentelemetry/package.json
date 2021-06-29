@@ -1,0 +1,39 @@
+{
+  "name": "opentelemetry",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test:unit": "mocha ./build/test/unit/*-specs.js"
+  },
+  "main": "./build/index.js",
+  "directories": {
+    "lib": "./lib"
+  },
+  "files": [
+    "lib",
+    "build"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@appium/base-plugin": "^1.7.0",
+    "@opentelemetry/core": "^0.18.x",
+    "@opentelemetry/exporter-jaeger": "^0.19.0",
+    "@opentelemetry/exporter-prometheus": "^0.19.0",
+    "@opentelemetry/exporter-zipkin": "^0.19.0",
+    "@opentelemetry/instrumentation-express": "^0.16.0",
+    "@opentelemetry/instrumentation-grpc": "^0.19.0",
+    "@opentelemetry/instrumentation-http": "^0.19.0",
+    "@opentelemetry/node": "^0.18.x",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@opentelemetry/api": "^0.18.1",
+    "@types/chai": "^4.2.18",
+    "@types/chai-as-promised": "^7.1.4",
+    "@types/lodash": "^4.14.170",
+    "@types/sinon": "^10.0.2",
+    "mocha": "^8.4.0"
+  }
+}
