@@ -18,8 +18,10 @@ class Tracer {
    */
   createSpanObject (name, parentSpan = null, spanOptions = null) {
     //TODO - verify setting context from parentSpan
-    const context = parentSpan ? setSpan(TraceAPI.context.active(), parentSpan) : null;
-    return this._tracer.startSpan(name, spanOptions, context);
+    const context = parentSpan ? parentSpan.context() : TraceAPI.context.active();
+    const span = this._tracer.startSpan(name, spanOptions, context);
+    setSpan(context, span);
+    return span;
   }
 
   /**

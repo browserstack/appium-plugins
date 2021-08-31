@@ -10,7 +10,7 @@
     "build": "lerna run copyfiles && node ./scripts/build.js",
     "watch": "lerna run copyfiles && node ./scripts/build.js --watch",
     "bootstrap": "lerna bootstrap --no-ci",
-    "test": "run-s \"test:*\"",
+    "test": "lerna run copyfiles && node ./scripts/build.js && run-s \"test:*\"",
     "test:lint": "lerna exec --stream -- npx eslint .",
     "test:unit": "lerna run --stream test:unit",
     "test:e2e": "lerna run --stream test:e2e",
