@@ -3,8 +3,6 @@ import { ZipkinExporter } from '@opentelemetry/exporter-zipkin';
 import { PrometheusExporter } from '@opentelemetry/exporter-prometheus';
 import { ConsoleSpanExporter, SpanExporter } from '@opentelemetry/tracing'; // eslint-disable-line no-unused-vars
 
-const DEFAULT_SERVICE_NAME = 'appium';
-
 const AVAILABLE_EXPORTERS = {
   JAEGER: 'jaeger',
   ZIPKIN: 'zipkin',
@@ -22,9 +20,9 @@ const AVAILABLE_EXPORTERS = {
 function buildExporter (exporterType, config = null) {
   switch (exporterType) {
     case AVAILABLE_EXPORTERS.JAEGER:
-      return new JaegerExporter(config || { serviceName: DEFAULT_SERVICE_NAME });
+      return new JaegerExporter(config);
     case AVAILABLE_EXPORTERS.ZIPKIN:
-      return new ZipkinExporter(config || { serviceName: DEFAULT_SERVICE_NAME });
+      return new ZipkinExporter(config || undefined);
     case AVAILABLE_EXPORTERS.PROMETHEUS:
       return new PrometheusExporter(config || {});
     case AVAILABLE_EXPORTERS.CONSOLE:
