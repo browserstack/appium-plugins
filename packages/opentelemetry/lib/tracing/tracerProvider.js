@@ -8,11 +8,17 @@ import { SpanProcessor, SpanExporter } from '@opentelemetry/tracing'; // eslint-
 import { ExporterConfig } from '@opentelemetry/exporter-jaeger'; // eslint-disable-line no-unused-vars
 import _ from 'lodash';
 import { forEachPromise } from '../utils';
+import { Resource } from '@opentelemetry/resources';
+import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
+
+const DEFAULT_SERVICE_NAME = 'appium';
 
 //Delegate
 class TracerProvider {
-  constructor () {
-    this.provider = new NodeTracerProvider();
+  constructor (serviceName = DEFAULT_SERVICE_NAME) {
+    this.provider = new NodeTracerProvider({
+        resource: new Resource({ [SemanticResourceAttributes.SERVICE_NAME]: serviceName }),
+    });
     this.exporterInstances = {};
     this._currentConfig = {
       active: true,
