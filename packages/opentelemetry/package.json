@@ -5,6 +5,13 @@
   "scripts": {
     "test:unit": "mocha ./build/test/unit/*-specs.js"
   },
+  "tags": [
+    "appium"
+  ],
+  "appium": {
+    "pluginName": "opentelemetry",
+    "mainClass": "OpentelemetryPlugin"
+  },
   "main": "./build/index.js",
   "directories": {
     "lib": "./lib"
