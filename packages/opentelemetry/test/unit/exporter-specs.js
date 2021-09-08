@@ -44,7 +44,7 @@ describe('ExporterFactory', function () {
     }
   });
   it('should have all the essential exporters', function () {
-    const expectedExporters = ['jagger', 'console', 'prometheus', 'zipkin'];
+    const expectedExporters = ['jaeger', 'console', 'prometheus', 'zipkin'];
     for (let key in AVAILABLE_EXPORTERS) {
       expect(expectedExporters).to.contain(AVAILABLE_EXPORTERS[key]);
     }
