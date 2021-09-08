@@ -6,7 +6,7 @@ import { ConsoleSpanExporter, SpanExporter } from '@opentelemetry/tracing'; // e
 const DEFAULT_SERVICE_NAME = 'appium';
 
 const AVAILABLE_EXPORTERS = {
-  JAGGER: 'jagger',
+  JAEGER: 'jaeger',
   ZIPKIN: 'zipkin',
   PROMETHEUS: 'prometheus',
   CONSOLE: 'console'
@@ -21,7 +21,7 @@ const AVAILABLE_EXPORTERS = {
 */
 function buildExporter (exporterType, config = null) {
   switch (exporterType) {
-    case AVAILABLE_EXPORTERS.JAGGER:
+    case AVAILABLE_EXPORTERS.JAEGER:
       return new JaegerExporter(config || { serviceName: DEFAULT_SERVICE_NAME });
     case AVAILABLE_EXPORTERS.ZIPKIN:
       return new ZipkinExporter(config || { serviceName: DEFAULT_SERVICE_NAME });

@@ -27,7 +27,7 @@ export default class OpentelemetryPlugin extends BasePlugin {
   static handleSetOpentelemetryConfig (req, res) {
     const opentelemetryBlob = req.body;
     const exporterConfig = opentelemetryBlob.exporter;
-    if (!exporterConfig) {
+    if (typeof exporterConfig == 'undefined' || exporterConfig == null) {
       const response = JSON.stringify({
         status: STATUS_MESSAGE.FAILURE, message: STATUS_MESSAGE.INVALID_EXPORTER_ERROR
       });

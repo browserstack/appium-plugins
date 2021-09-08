@@ -21,8 +21,8 @@ describe('ExporterFactory', function () {
     exporterObject.should.be.instanceOf(ConsoleSpanExporter);
     await exporterObject.shutdown();
   });
-  it(`should return exporter object for ${AVAILABLE_EXPORTERS.JAGGER} exporter`, async function () {
-    const exporterObject = buildExporter('jagger');
+  it(`should return exporter object for ${AVAILABLE_EXPORTERS.JAEGER} exporter`, async function () {
+    const exporterObject = buildExporter('jaeger');
     exporterObject.should.be.instanceOf(JaegerExporter);
     await exporterObject.shutdown();
   });
