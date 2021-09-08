@@ -22,7 +22,7 @@ function buildExporter (exporterType, config = null) {
     case AVAILABLE_EXPORTERS.JAEGER:
       return new JaegerExporter(config);
     case AVAILABLE_EXPORTERS.ZIPKIN:
-      return new ZipkinExporter(config);
+      return new ZipkinExporter(config || undefined);
     case AVAILABLE_EXPORTERS.PROMETHEUS:
       return new PrometheusExporter(config || {});
     case AVAILABLE_EXPORTERS.CONSOLE:

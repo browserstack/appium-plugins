@@ -17,7 +17,7 @@ const DEFAULT_SERVICE_NAME = 'appium';
 class TracerProvider {
   constructor (serviceName = DEFAULT_SERVICE_NAME) {
     this.provider = new NodeTracerProvider({
-        resource: new Resource({ [SemanticResourceAttributes.SERVICE_NAME]: serviceName }),
+      resource: new Resource({ [SemanticResourceAttributes.SERVICE_NAME]: serviceName }),
     });
     this.exporterInstances = {};
     this._currentConfig = {
