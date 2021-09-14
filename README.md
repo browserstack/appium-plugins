@@ -1,4 +1,4 @@
-# Appium Plugins
+# Appium Plugins by Browserstack
 
 Home for Appium Plugins maintained by the BrowserStack Open Source Program Office
 
